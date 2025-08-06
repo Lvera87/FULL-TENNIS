@@ -47,7 +47,7 @@ Este proyecto fue desarrollado durante un hackatón por el equipo:
 
 1. Clona o descarga el repositorio:
    ```bash
-   git clone https://github.com/usuario/full-tennis.git
+   git clone https://github.com/Lvera87/full-tennis.git
 2.Abre el archivo index.html en tu navegador.
 
 3.Interactúa con los productos: agrégalos al carrito o marca como favoritos. La información se guarda localmente en tu navegador.
