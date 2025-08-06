@@ -1,0 +1,34 @@
+.footer-tenis {
+  background-color: #202121;
+  color: #FBFFEC;
+}
+
+.footer-tenis .logo-footer {
+  width: 150px;
+}
+
+.footer-tenis .descripcion-footer {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.footer-tenis .titulo-footer {
+  color: #DE8648;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-tenis .link-footer {
+  text-decoration: none;
+  color: #FBFFEC;
+  transition: color 0.3s ease;
+}
+
+.footer-tenis .link-footer:hover {
+  color: #DE8648;
+}
+
+.footer-tenis .linea-footer {
+  border-top: 2px solid #DE8648;
+}
+
