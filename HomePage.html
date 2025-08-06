@@ -23,6 +23,75 @@
     <link rel="stylesheet" href="HomePage.css">
 </head>
 <body>
+<!-- NAVBAR CON CARRITO Y MENÚ RESPONSIVE -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(44, 62, 80, 0.95);">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#" style="font-family: 'Bebas Neue', cursive; font-size: 1.5rem; letter-spacing: 1px;">
+      <img src="Imag/ChatGPT Image 6 ago 2025, 14_18_36.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+      FULL TENNIS
+    </a>
+    <button class="navbar-toggler menuBtn" type="button" onclick="openMenu()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <button class="btn btn-link text-white closeBtn d-lg-none" style="display:none;" onclick="closeMenu()">
+      <i class="fas fa-times fa-lg"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#catalogo">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contacto">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link position-relative" href="#" data-bs-toggle="modal" data-bs-target="#modalCarrito">
+            <i class="fas fa-shopping-cart me-1"></i>
+            <span id="cuenta" class="badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
+            Carrito
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- MODAL CARRITO -->
+<div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="modalCarritoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalCarritoLabel">Carrito de Compras</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Precio</th>
+              <th>Cantidad</th>
+              <th>Subtotal</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="contentProducts"></tbody>
+        </table>
+        <div class="text-end">
+          <strong>Total: <span id="total">$0.00</span></strong>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="vaciarCarrito" class="btn btn-secondary">Vaciar carrito</button>
+        <button class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Barra de navegación -->
 
 
@@ -55,84 +124,78 @@
     <div class="row g-4">
       <!-- Producto 1 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/df508599455847dab44dc705e23cc1f7_9366/solematch-control-2-tennis-shoes.jpg" class="card-img-top" alt="Solematch Control 2 Tennis Shoes">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Solematch Control 2 Tennis Shoes</h5>
-            <h6 class="text-muted">$98</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$98</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
       <!-- Producto 2 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/63b99ca2d8b44d1cb418897a58f383c5_9366/barricade-13-tennis-shoes.jpg" class="card-img-top" alt="Barricade 13 Tennis Shoes">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Barricade 13 Tennis Shoes</h5>
-            <h6 class="text-muted">$160</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$160</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
       <!-- Producto 3 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://www.mistertennis.com/images/2024-media-06/adidas-avacourt-2-scarpe-da-tennis-donna-aurora-black-zero-met-ih2593_A.jpg" class="card-img-top" alt="adidas Avacourt 2">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">adidas Avacourt 2 Aurora Black/Zero Met/Spark</h5>
-            <h6 class="text-muted">$87.23</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$87.23</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
       <!-- Producto 4 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://www.mistertennis.com/media/products/2024-media-06/ftw24230-150_A-600x600.jpg" class="card-img-top" alt="Fila Mondo Forza Clay">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Fila Mondo Forza Clay White/Navy</h5>
-            <h6 class="text-muted">$93</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$93</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
        <!-- Producto 5 -->
        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/c336f694e0964e0eb8d8ab8142004943_9366/adizero-ubersonic-5-tennis-shoes.jpg" class="card-img-top" alt="Adizero Ubersonic 5 Tennis Shoes">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Adizero Ubersonic 5 Tennis Shoes</h5>
-            <h6 class="text-muted">$113</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$113</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
        <!-- Producto 6 -->
        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/27df18945b8841ab93de6ae42842a1a5_9366/pickleball-shoes.jpg" class="card-img-top" alt="Pickleball Shoes">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Pickleball Shoes</h5>
-            <h6 class="text-muted">$80</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$80</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
@@ -144,70 +207,65 @@
     <div class="row g-4">
       <!-- Producto 1 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://media.babolat.com/image/upload/f_auto,q_auto,c_pad,w_240,h_240/v1738332471/Product_Media/2025/Tennis/Racquets/Expert/CORRECTIONS/101552-PD_GEN11_U-100-2-3_4_right.png" class="card-img-top" alt="Pure Drive Gen11 Sin encordar">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Pure Drive Gen11 Sin encordar</h5>
-            <h6 class="text-muted">$314.38</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$314.38</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
       <!-- Producto 2 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://www.mistertennis.com/images/2025-media-03/head-instinct-mp-racchetta-da-tennis-232005_0-B.jpg" class="card-img-top" alt="HEAD Instinct MP">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">HEAD Instinct MP</h5>
-            <h6 class="text-muted">$151</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$151</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
       <!-- Producto 3 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://media.babolat.com/image/upload/f_auto,q_auto,c_pad,w_1008,h_1008/v1707733022/Product_Media/2025/Tennis/Racquets/Kids_Juniors/140532-Pure_Drive_Junior_25-100-1-Face.png" class="card-img-top" alt="Pure Drive Junior 25 Gen11">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Pure Drive Junior 25 Gen11</h5>
-            <h6 class="text-muted">$139.69</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$139.69</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
       <!-- Producto 4 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://wilsonstore.com.co/wp-content/uploads/2025/04/6702ea2bae55261721231652_thumbnail-1.jpg" class="card-img-top" alt="Raqueta de Tenis Wilson Blade Feel 103 RKT">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Raqueta de Tenis Wilson Blade Feel 103 RKT</h5>
-            <h6 class="text-muted">$699.990</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$699.990</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
        <!-- Producto 5 -->
        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://wilsonstore.com.co/wp-content/uploads/2024/05/64f57672e7f6dd11f39f8d89_thumbnail.jpg" class="card-img-top" alt="Raqueta de Tenis Wilson Blade 104 V9 (290g)">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Raqueta de Tenis Wilson Blade 104 V9 (290g)</h5>
-            <h6 class="text-muted">$1.559.990</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$1.559.990</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
@@ -219,70 +277,65 @@
     <div class="row g-4">
       <!-- Producto 1 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://wilsonstore.com.co/wp-content/uploads/2024/05/5f5916365f8c84465e05a468_thumbnail.jpg" class="card-img-top" alt="Pelotas de Tenis Wilson Us Open Extra Duty x3">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Pelotas de Tenis Wilson Us Open Extra Duty x3</h5>
-            <h6 class="text-muted">$47</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$47</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
       <!-- Producto 2 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://dunlopsports.com/Admin/Public/GetImage.ashx?image=%2FFiles%2FProduct+assets%2FProduct+Images%2FTennis%2FBalls%2F2025%2F601602_DT24_AO+Official+4Ball_1.png&width=960&format=webp" class="card-img-top" alt="AUSTRALIAN OPEN 4PET">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">AUSTRALIAN OPEN 4PET</h5>
-            <h6 class="text-muted">$11.49</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$11.49</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
       <!-- Producto 3 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://dunlopsports.com/Admin/Public/GetImage.ashx?image=%2FFiles%2FProduct+assets%2FProduct+Images%2FTennis%2FBalls%2F601601_DT24_AO+Official+3Ball_2.png&width=960&format=webp" class="card-img-top" alt="AUSTRALIAN OPEN 3PE">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">AUSTRALIAN OPEN 3PE</h5>
-            <h6 class="text-muted">$9.89</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$9.89</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
       <!-- Producto 4 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://dunlopsports.com/Admin/Public/GetImage.ashx?image=%2FFiles%2FProduct+assets%2FProduct+Images%2FTennis%2FBalls%2F2025%2F601607_DT24_Fort+All+Court+4Ball_1.png&width=960&format=webp" class="card-img-top" alt="FORT ALL COURT TS 4PET">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">FORT ALL COURT TS 4PET</h5>
-            <h6 class="text-muted">$14.55</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$14.55</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
        <!-- Producto 5 -->
        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://dunlopsports.com/Admin/Public/GetImage.ashx?image=%2FFiles%2FProduct+assets%2FProduct+Images%2FTennis%2FBalls%2F2026%2F601604_DT25_AUSTRALIAN+OPEN+2x4PET_4.png&width=960&format=webp" class="card-img-top" alt="AUSTRALIAN OPEN 2x4PET CARTONETTE">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">AUSTRALIAN OPEN 2x4PET CARTONETTE</h5>
-            <h6 class="text-muted">$26.78</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$26.78</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
@@ -294,56 +347,52 @@
     <div class="row g-4">
       <!-- Producto 1 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/271a65bd928a40be845b92d1707954ae_9366/Tennis_Climacool_Y-Dress_Green_JW2989_21_model.jpg" class="card-img-top" alt="Tennis Climacool Y-Dress">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Tennis Climacool Y-Dress</h5>
-            <h6 class="text-muted">$90</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$90</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
       <!-- Producto 2 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/16adc7dde35c48c486a5139be54a4376_9366/Tennis_Pro_Climacool_Polo_Shirt_White_JM4734_25_model.jpg" class="card-img-top" alt="Tennis Pro Climacool Polo Shirt">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Tennis Pro Climacool Polo Shirt</h5>
-            <h6 class="text-muted">$53</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$53</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
       <!-- Producto 3 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/e6fa0abb68fe434fb17c3414bd8332b2_9366/Tennis_Pro_Climacool_Shorts_White_JM4732_21_model.jpg" class="card-img-top" alt="Tennis Pro Climacool Shorts">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Tennis Pro Climacool Shorts</h5>
-            <h6 class="text-muted">$53</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$53</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
       <!-- Producto 4 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/eb1f9cbd-f4bb-4b0d-8228-e5d6b4e5713d/U+NK+DFADV+ACE+VISOR+U+SAB+P.png" class="card-img-top" alt="Nike Dri-FIT ADV Ace-Tennis Visor">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Nike Dri-FIT ADV Ace-Tennis Visor</h5>
-            <h6 class="text-muted">$26</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$26</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
@@ -355,70 +404,65 @@
     <div class="row g-4">
       <!-- Producto 1 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://www.lecoqsportif.com/cdn/shop/files/2510286_1.jpg?v=1737029516&width=750" class="card-img-top" alt="Tennis Performance Camiseta de hombre">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Tennis Performance Camiseta de hombre</h5>
-            <h6 class="text-muted">$69.89</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$69.89</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
       <!-- Producto 2 -->
       <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://www.lecoqsportif.com/cdn/shop/files/2510171_1.jpg?v=1737029453&width=750" class="card-img-top" alt="Tennis Performance Pantalones cortos para hombre">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Tennis Performance Pantalones cortos para hombre</h5>
-            <h6 class="text-muted">$69.89</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$69.89</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
        <!-- Producto 3 -->
        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/2d4f37512ff945a7b327131998f6def8_9366/Tennis_Pro_Climacool_Tank_Top_White_JL9677_21_model.jpg" class="card-img-top" alt="Tennis Pro Climacool Tank Top">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Tennis Pro Climacool Tank Top</h5>
-            <h6 class="text-muted">$57</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$57</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
        <!-- Producto 4 -->
        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/8ff5bca2ef534db485a63400495c5a60_9366/Tennis_Climacool_AIRCHILL_FreeLift_Tee_Black_JF8459_21_model.jpg" class="card-img-top" alt="Tennis Climacool+ AIRCHILL FreeLift Tee">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Tennis Climacool+ AIRCHILL FreeLift Tee</h5>
-            <h6 class="text-muted">$60</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$60</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
       </div>
        <!-- Producto 5 -->
        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm product">
           <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/b75d19b8b72b4b409e845ff59f831e11_9366/Club_Tennis_Climacool_Pique_Polo_Shirt_Black_JF8424_21_model.jpg" class="card-img-top" alt="Club Tennis Climacool Piqué Polo Shirt">
-          <div class="card-body d-flex flex-column justify-content-between">
+          <div class="card-body d-flex flex-column justify-content-center">
             <h5 class="card-title">Club Tennis Climacool Piqué Polo Shirt</h5>
-            <h6 class="text-muted">$55</h6>
-            <div class="d-flex justify-content-between mt-auto">
-              <button class="btn btn-outline-danger btn-sm">❤️</button>
-              <button class="btn btn-primary btn-sm">🛒 Agregar</button>
+            <h6 class="text-muted precio">$55</h6>
+            <div class="d-flex justify-content-center mt-auto">
+              <button class="btn btn-primary btn-sm btn-add">🛒 Agregar</button>
             </div>
           </div>
         </div>
@@ -427,79 +471,79 @@
   </section>
 
   <!-- SECCIÓN DE CONTACTO -->
-  <section class="contact-section" id="contacto">
+  <section class="py-5 bg-light" id="contacto">
     <div class="container">
-      <h2>Contáctenos</h2>
-      
-      <div class="row g-4 mb-5">
-        <!-- Información de contacto -->
-        <div class="col-md-4">
-          <div class="contact-card">
-            <i class="fas fa-map-marker-alt contact-icon"></i>
-            <h4>Ubicación</h4>
-            <p>742 de Evergreen Terrace<br>Springfield, EE.UU.</p>
+      <h2 class="mb-4 text-center">Contáctenos</h2>
+      <div class="row mb-4">
+        <div class="col-md-4 mb-3">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-map-marker-alt fa-2x mb-2" style="color: #DE8648;"></i>
+              <h5 class="card-title">Ubicación</h5>
+              <p class="card-text mb-0">742 de Evergreen Terrace<br>Springfield, EE.UU.</p>
+            </div>
           </div>
         </div>
-        
-        <div class="col-md-4">
-          <div class="contact-card">
-            <i class="fas fa-phone contact-icon"></i>
-            <h4>Teléfono</h4>
-            <p>+57 304 6321242<br>Lunes a Viernes<br>9:00 AM - 6:00 PM</p>
+        <div class="col-md-4 mb-3">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-phone fa-2x mb-2" style="color: #DE8648;"></i>
+              <h5 class="card-title">Teléfono</h5>
+              <p class="card-text mb-0">+57 304 6321242<br>Lunes a Viernes<br>9:00 AM - 6:00 PM</p>
+            </div>
           </div>
         </div>
-        
-        <div class="col-md-4">
-          <div class="contact-card">
-            <i class="fas fa-envelope contact-icon"></i>
-            <h4>Email</h4>
-            <p>contacto@fulltenis.com<br>ventas@fulltenis.com<br>soporte@fulltenis.com</p>
+        <div class="col-md-4 mb-3">
+          <div class="card h-100">
+            <div class="card-body text-center">
+              <i class="fas fa-envelope fa-2x mb-2" style="color: #DE8648;"></i>
+              <h5 class="card-title">Email</h5>
+              <p class="card-text mb-0">contacto@fulltenis.com<br>ventas@fulltenis.com<br>soporte@fulltenis.com</p>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- Formulario de contacto -->
       <div class="row justify-content-center">
         <div class="col-lg-8">
-          <div class="contact-form">
-            <h3 class="text-center mb-4" style="font-family: 'Poppins', sans-serif; font-weight: 600; color: #2c3e50;">Envíanos un mensaje</h3>
-            <form>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="Tu nombre completo" required>
-                </div>
-                <div class="col-md-6">
-                  <input type="email" class="form-control" placeholder="Tu email" required>
-                </div>
-                <div class="col-md-6">
-                  <input type="tel" class="form-control" placeholder="Tu teléfono">
-                </div>
-                <div class="col-md-6">
-                  <select class="form-control" required>
-                    <option value="">Motivo de consulta</option>
-                    <option value="productos">Consulta sobre productos</option>
-                    <option value="ventas">Ventas y precios</option>
-                    <option value="soporte">Soporte técnico</option>
-                    <option value="sugerencias">Sugerencias</option>
-                    <option value="otros">Otros</option>
-                  </select>
-                </div>
-                <div class="col-12">
-                  <textarea class="form-control" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-contact">
-                    <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
-                  </button>
-                </div>
+          <form>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="nombre" class="form-label">Nombre completo</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Tu nombre completo" required>
               </div>
-            </form>
-          </div>
+              <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Tu email" required>
+              </div>
+              <div class="col-md-6">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="tel" class="form-control" id="telefono" placeholder="Tu teléfono">
+              </div>
+              <div class="col-md-6">
+                <label for="motivo" class="form-label">Motivo de consulta</label>
+                <select class="form-select" id="motivo" required>
+                  <option value="">Selecciona una opción</option>
+                  <option value="productos">Consulta sobre productos</option>
+                  <option value="ventas">Ventas y precios</option>
+                  <option value="soporte">Soporte técnico</option>
+                  <option value="sugerencias">Sugerencias</option>
+                  <option value="otros">Otros</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+              </div>
+              <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary px-5" style="background:#DE8648; border:none;">Enviar Mensaje</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </section>
-
+  
 <!-- FOOTER -->
 <footer class="footer-tenis text-white pt-5 pb-3">
   <div class="container-fluid">
@@ -560,6 +604,21 @@
 
 <!-- JavaScript personalizado -->
 <script>
+// Menú responsive
+let menu = document.getElementById("menu");
+let menuBtn= document.querySelector(".menuBtn");
+let closeBtn = document.querySelector(".closeBtn");
+function openMenu(){
+    menu.classList.add("show");
+    menuBtn.style.display= "none";
+    closeBtn.style.display="block";
+}
+function closeMenu(){
+    menu.classList.remove("show");
+    menuBtn.style.display= "block";
+    closeBtn.style.display="none";
+}
+
 // Animaciones de scroll
 document.addEventListener('DOMContentLoaded', function() {
     // Observador de intersección para animaciones
@@ -637,6 +696,102 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// --- CARRITO DE COMPRAS ---
+let carrito = [];
+const tablaCarrito = document.getElementById("contentProducts");
+const totalElement = document.getElementById("total");
+const cuentaCarrito = document.getElementById("cuenta");
+
+// Cargar carrito desde localStorage al iniciar
+window.addEventListener("DOMContentLoaded", () => {
+  const carritoGuardado = localStorage.getItem("carrito");
+  if (carritoGuardado) {
+    carrito = JSON.parse(carritoGuardado);
+    renderizarCarrito();
+  }
+  agregarListenersBotones();
+});
+
+// Agregar listeners a los botones de agregar al carrito
+function agregarListenersBotones() {
+  const botonesAgregar = document.querySelectorAll(".btn-add");
+  botonesAgregar.forEach((boton) => {
+    boton.addEventListener("click", () => {
+      const card = boton.closest(".product");
+      const nombre = card.querySelector(".card-title").textContent.trim();
+      const precioTexto = card.querySelector(".precio").textContent.trim();
+      const precio = parseFloat(precioTexto.replace(/[^0-9.]/g, ""));
+      const producto = { nombre, precio };
+      const index = carrito.findIndex((item) => item.nombre === producto.nombre);
+      if (index !== -1) {
+        carrito[index].cantidad += 1;
+      } else {
+        producto.cantidad = 1;
+        carrito.push(producto);
+      }
+      guardarCarrito();
+      renderizarCarrito();
+    });
+  });
+}
+
+function guardarCarrito() {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+function renderizarCarrito() {
+  tablaCarrito.innerHTML = "";
+  let total = 0;
+  let totalCantidad = 0;
+  carrito.forEach((producto, index) => {
+    const fila = document.createElement("tr");
+    const tdNombre = document.createElement("td");
+    tdNombre.textContent = producto.nombre;
+    const tdPrecio = document.createElement("td");
+    tdPrecio.textContent = `$${producto.precio.toFixed(2)}`;
+    const tdCantidad = document.createElement("td");
+    tdCantidad.textContent = producto.cantidad;
+    const subtotal = producto.precio * producto.cantidad;
+    const tdSubtotal = document.createElement("td");
+    tdSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+    total += subtotal;
+    totalCantidad += producto.cantidad;
+    const tdEliminar = document.createElement("td");
+    const botonEliminar = document.createElement("button");
+    botonEliminar.textContent = "Eliminar";
+    botonEliminar.classList.add("btn", "btn-danger", "btn-sm");
+    botonEliminar.addEventListener("click", () => eliminarProducto(index));
+    tdEliminar.appendChild(botonEliminar);
+    fila.appendChild(tdNombre);
+    fila.appendChild(tdPrecio);
+    fila.appendChild(tdCantidad);
+    fila.appendChild(tdSubtotal);
+    fila.appendChild(tdEliminar);
+    tablaCarrito.appendChild(fila);
+  });
+  totalElement.textContent = `$${total.toFixed(2)}`;
+  if (cuentaCarrito) {
+    cuentaCarrito.textContent = totalCantidad;
+  }
+}
+
+function eliminarProducto(index) {
+  carrito.splice(index, 1);
+  guardarCarrito();
+  renderizarCarrito();
+}
+
+const vaciarBtn = document.getElementById("vaciarCarrito");
+if (vaciarBtn) {
+  vaciarBtn.addEventListener("click", () => {
+    carrito = [];
+    guardarCarrito();
+    renderizarCarrito();
+  });
+}
+
+// Si agregas productos dinámicamente, vuelve a llamar a agregarListenersBotones()
 </script>
 
 </body>
